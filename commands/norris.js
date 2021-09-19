@@ -6,11 +6,11 @@ exports.run = async (client, message, ) => {
 	message.delete();
 	let urlImage; 
 	const rand = Math.floor(Math.random()*685); 
-	const res = await axios.get(`https://api.chucknorris.io/jokes/random`)
+	const res = await axios.get('https://api.chucknorris.io/jokes/random');
 	
-	urlImage = res.data.icon_url
-	const value = res.data.value
-   	
+	urlImage = res.data.icon_url;
+	const value = res.data.value;
+
 	if(urlImage != undefined){
 		let avatar = message.author.displayAvatarURL({format: 'png'});
 		const embed = new Discord.MessageEmbed()
