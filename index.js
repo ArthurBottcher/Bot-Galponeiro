@@ -10,30 +10,30 @@ app.get('/', async(request, response) => {
 	ping.setHours(ping.getHours() - 3);
 	console.log(`Ping recebido às ${ping.getUTCHours()}:${ping.getUTCMinutes()}:${ping.getUTCSeconds()}`);
 	
-	try{
+	// try{
 	
-		const resAws = await axios.get('http://54.226.97.199:3000/'); //VM nas AWS (relátorios)
-		const resGcp = await axios.get('http://35.188.77.166:8000/status'); //VM Google (extract)
-		//api yopen
-		//api dok plus
-		//api workflux
-		//api appcenter
-		//
+	// 	const resAws = await axios.get('http://54.226.97.199:3000/'); //VM nas AWS (relátorios)
+	// 	const resGcp = await axios.get('http://35.188.77.166:8000/status'); //VM Google (extract)
+	// 	//api yopen
+	// 	//api dok plus
+	// 	//api workflux
+	// 	//api appcenter
+	// 	//
 
-		console.log(resAws.data, resGcp.data);
+	// 	console.log(resAws.data, resGcp.data);
 	
-		const guild = await client.guilds.cache.get('872920395987185736');
-		const channel = await guild.channels.cache.get('872923298466504794');
-		channel.send(resAws.data + ` AWS - ${ping.getUTCHours()}:${ping.getUTCMinutes()}:${ping.getUTCSeconds()}`);
-		channel.send(resGcp.data + ` GCP - ${ping.getUTCHours()}:${ping.getUTCMinutes()}:${ping.getUTCSeconds()}`);
+	// 	const guild = await client.guilds.cache.get('872920395987185736');
+	// 	const channel = await guild.channels.cache.get('872923298466504794');
+	// 	channel.send(resAws.data + ` AWS - ${ping.getUTCHours()}:${ping.getUTCMinutes()}:${ping.getUTCSeconds()}`);
+	// 	channel.send(resGcp.data + ` GCP - ${ping.getUTCHours()}:${ping.getUTCMinutes()}:${ping.getUTCSeconds()}`);
 	
-	}catch(err){
-		const guild = await client.guilds.cache.get('850843765451259924');
-		const channel = await guild.channels.cache.get('870768668869558342');
-		channel.send(`A VM caiu :( Ative o modo monstro novamente!- ${ping.getUTCHours()}:${ping.getUTCMinutes()}:${ping.getUTCSeconds()}`);
-		console.log(err);
+	// }catch(err){
+	// 	const guild = await client.guilds.cache.get('850843765451259924');
+	// 	const channel = await guild.channels.cache.get('870768668869558342');
+	// 	channel.send(`A VM caiu :( Ative o modo monstro novamente!- ${ping.getUTCHours()}:${ping.getUTCMinutes()}:${ping.getUTCSeconds()}`);
+	// 	console.log(err);
 
-	}
+	// }
 	
 
 	response.sendStatus(200);
