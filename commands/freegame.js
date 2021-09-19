@@ -4,14 +4,13 @@ const axios = require('axios');
 
 exports.run = async (client, message, ) => {
 	message.delete();
-	let urlImage; 
-	const res = await axios.get(`https://www.freetogame.com/api/games`)
-	const rand = Math.floor(Math.random()*res.data.length); 
-    console.log(res.data[number])
-    let name = res.data[number].title
-    let plat = res.data[number].platform
-    let image = res.data[number].thumbnail
-	console.log(name, plat, image)
+	const res = await axios.get('https://www.freetogame.com/api/games');
+	const number = Math.floor(Math.random()*res.data.length); 
+	console.log(res.data[number]);
+	let name = res.data[number].title;
+	let plat = res.data[number].platform;
+	let image = res.data[number].thumbnail;
+	console.log(name, plat, image);
 	if(image != undefined){
 		let avatar = message.author.displayAvatarURL({format: 'png'});
 		const embed = new Discord.MessageEmbed()
