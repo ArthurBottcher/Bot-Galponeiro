@@ -1,18 +1,17 @@
+
 const Discord = require('discord.js');
 const axios = require('axios');
 
-exports.run = async (client, message, args) => {
+exports.run = async (client, message, ) => {
 	message.delete();
-	let tag = args.join(' ');
 	let urlImage; 
-	if (!tag) return message.reply('lembre-se de colocar uma tag');
-
-	await axios.get('https://g.tenor.com/v1/random?q=' + tag + '&key=BCM2F2KWSZ14&limit=1&contentfilter=off')
+	const rand = Math.random(1,685); 
+	await axios.get(`https://pokeapi.co/api/v2/pokemon/${rand}`)
 		.then((res) => {
-			urlImage = res.data.results[0].media[0].gif.url;
+			urlImage = res.data.sprites['other']['official-artwork']['front_default'];
 		})
 		.catch(() => {
-			message.reply('Termo não encontrado!');
+			message.reply('Ops');
 		});
 
 	if(urlImage != undefined){
@@ -22,7 +21,7 @@ exports.run = async (client, message, args) => {
 			.setDescription('Seu gif: ')
 			.setImage(`${urlImage}`)
 			.setTimestamp()
-			.setFooter(tag)
+			.setFooter(rand)
 			.setAuthor(message.author.tag, avatar);
 		await message.channel.send(embed);
 	}

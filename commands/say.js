@@ -1,10 +1,8 @@
 
-const Discord = require("discord.js")
-
-exports.run = async (client, message, args) => {
-    message.delete()
-    var args = message.content.split(" ").slice(1).join(" ")
-    if (!args) return message.reply("insira a sua mensagem.")  
-    message.channel.send(args)
+exports.run = async (client, message) => {
+	message.delete();
+	var msg = message.content.split(' ').slice(1).join(' ');
+	if (!msg) return message.reply('insira a sua mensagem.');  
+	message.channel.send(msg);
     
-}
+};

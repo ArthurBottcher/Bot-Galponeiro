@@ -12,10 +12,10 @@ const frases = [
 	'Agora a NASA vem',
 	'Quase infartei cupinxa',
 	'Jurei que eu estava sendo seguido'
-]
-const Discord = require("discord.js")
-exports.run = async (client, message, args) => {
-	message.delete()
-	rand = frases[Math.floor(Math.random() * frases.length)]
-	await message.channel.send(rand)  
-}
+];
+
+exports.run = async (client, message,) => {
+	message.delete();
+	const rand = frases[Math.floor(Math.random() * frases.length)];
+	await message.channel.send(rand);  
+};

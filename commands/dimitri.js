@@ -1,12 +1,11 @@
-const Discord = require("discord.js")
-const axios = require('axios')
+const Discord = require('discord.js');
 
-exports.run = async (client, message, args) => {
-	message.delete()
+exports.run = async (client, message, ) => {
+	message.delete();
 	const embed = await new Discord.MessageEmbed()
-	    .setColor('#f2eb24')
-	    .setTitle(`Hoje é sexta-feiraa`)
-        .setImage(`https://media.tenor.com/images/3b609475f0120fef583a3a188c7fe506/tenor.gif`)
-	    .setTimestamp()
-	await message.channel.send(embed)  
-}
+		.setColor('#f2eb24')
+		.setTitle('Hoje é sexta-feiraa')
+		.setImage('https://media.tenor.com/images/3b609475f0120fef583a3a188c7fe506/tenor.gif')
+		.setTimestamp();
+	await message.channel.send(embed);  
+};

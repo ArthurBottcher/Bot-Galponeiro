@@ -16,11 +16,11 @@ const piadas = [
 	'O % é tão gordo mas tão gordo, que caso ele pare de suar feito uma porca prenha, o volume de água no planeta reduz em 76%.',
 	'O % foi para a praia, dormiu na areia e acordou numa plataforma do guincho Darcy Pacheco'
 
-]
-const Discord = require("discord.js")
+];
+
 exports.run = async (client, message, args) => {
-	let user = message.mentions.users.first() || client.users.cache.get(args[0])
-	message.delete()
-	rand = piadas[Math.floor(Math.random() * piadas.length)]
-	await message.channel.send(rand.replace('%', user))  
-}
+	let user = message.mentions.users.first() || client.users.cache.get(args[0]);
+	message.delete();
+	const rand = piadas[Math.floor(Math.random() * piadas.length)];
+	await message.channel.send(rand.replace('%', user));  
+};
