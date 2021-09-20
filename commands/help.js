@@ -46,7 +46,8 @@ exports.run = async (client, message) => {
 		.setColor('#')
 		.setTitle('Meus comandos')
 		.setDescription('Fique a vontade para sugerir novos comandos, Meu prefixo é !')
-		.addFields(fields)
 		.setTimestamp();
+	fields.map(f =>
+		embed.addField(f.name, f.value, f.inline));
 	await message.channel.send(embed);	
 };
